@@ -1,0 +1,37 @@
+/ Define a class for a bus
+class Bus {
+  constructor(route, capacity) {
+    this.route = route;
+    this.capacity = capacity;
+    this.passengers = [];
+  }
+
+  // Method to add a passenger
+  addPassenger(passengerName) {
+    if (this.passengers.length < this.capacity) {
+      this.passengers.push(passengerName);
+      console.log(${passengerName} booked a ticket on the ${this.route} bus.);
+    } else {
+      console.log(Sorry, the ${this.route} bus is full.);
+    }
+  }
+
+  // Method to display passengers
+  displayPassengers() {
+    console.log(Passengers on the ${this.route} bus:);
+    this.passengers.forEach((passenger, index) => {
+      console.log(${index + 1}. ${passenger});
+    });
+  }
+}
+
+// Create a new bus instance
+const busA = new Bus("Route A", 20);
+
+// Add passengers to the bus
+busA.addPassenger("Alice");
+busA.addPassenger("Bob");
+busA.addPassenger("Charlie");
+
+// Display passengers on the bus
+busA.displayPassengers();
