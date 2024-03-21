@@ -1,0 +1,42 @@
+<?php
+
+class Bus {
+    private $route;
+    private $capacity;
+    private $passengers;
+
+    public function __construct($route, $capacity) {
+        $this->route = $route;
+        $this->capacity = $capacity;
+        $this->passengers = [];
+    }
+
+    public function addPassenger($passengerName) {
+        if (count($this->passengers) < $this->capacity) {
+            $this->passengers[] = $passengerName;
+            echo "$passengerName booked a ticket on the $this->route bus. <br>";
+        } else {
+            echo "Sorry, the $this->route bus is full. <br>";
+        }
+    }
+
+    public function displayPassengers() {
+        echo "Passengers on the $this->route bus: <br>";
+        foreach ($this->passengers as $index => $passenger) {
+            echo ($index + 1) . ". $passenger <br>";
+        }
+    }
+}
+
+// Create a new bus instance
+$busA = new Bus("Route A", 20);
+
+// Add passengers to the bus
+$busA->addPassenger("Alice");
+$busA->addPassenger("Bob");
+$busA->addPassenger("Charlie");
+
+// Display passengers on the bus
+$busA->displayPassengers();
+
+?>
